@@ -3,7 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname=pet_hotel user=maccat")
+conn = psycopg2.connect("dbname=pet_hotel")
 cur = conn.cursor()
 # cur.execute("SELECT * FROM pet")
 
