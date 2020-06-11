@@ -3,6 +3,10 @@ import psycopg2
 
 app = Flask(__name__)
 
+conn = psycopg2.connect("dbname=pet_hotel user=maccat")
+cur = conn.cursor()
+# cur.execute("SELECT * FROM pet")
+
 @app.route('/')
 def hello():
     return "Hello World"
