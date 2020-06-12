@@ -11,8 +11,6 @@ def addOwner():
         sql = "INSERT INTO owner (name) VALUES (%s);"
         req = request.get_json()
         data = req.get("name")
-
-        # data = cur.fetchall()
         print("value", data)
         cur.execute(sql, (data,))
         conn.commit()
@@ -23,10 +21,7 @@ def addOwner():
         print(err)
         conn.rollback()
         res = 500
-        return res
-
-    # results = cursor.fetchall()
-   
+        return res   
 
 
 if __name__ == "__main__":
