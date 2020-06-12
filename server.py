@@ -12,9 +12,9 @@ cur = conn.cursor()
 #pet get request
 @app.route('/api/pet')
 def fetchPets():
-    conn = psycopg2.connect("dbname=pet_hotel", )
+    conn = psycopg2.connect("dbname=pet_hotel")
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute("SELECT * FROM pet")
+    cur.execute("SELECT owner.name as owner_name, pet.name, pet.breed, pet.color, pet.checked_in, pet.owner_id FROM pet JOIN owner ON pet.owner_id=owner.id")
     return jsonify(cur.fetchall())
 
 #owner get request
