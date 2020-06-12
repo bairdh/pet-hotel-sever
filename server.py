@@ -7,7 +7,7 @@ conn = psycopg2.connect("dbname=pet_hotel")
 cur = conn.cursor()
 # cur.execute("SELECT * FROM pet")
 
-@app.route('/')
+@app.route('/api/pet')
 def hello():
     return "Hello World"
 
