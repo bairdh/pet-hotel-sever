@@ -5,11 +5,13 @@ app = Flask(__name__)
 
 conn = psycopg2.connect("dbname=pet_hotel")
 cur = conn.cursor()
-# cur.execute("SELECT * FROM pet")
+cur.execute("SELECT * FROM pet")
+
 
 @app.route('/api/pet')
 def hello():
     return "Hello World"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
