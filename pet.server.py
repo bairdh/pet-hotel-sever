@@ -9,8 +9,12 @@ cur.execute("SELECT * FROM pet")
 
 
 @app.route('/api/pet')
-def hello():
-    return "Hello World"
+def fetchPets():
+    conn = psycopg2.connect("dbname=pet_hotel")
+    cur = conn.cursor()
+    result = cur.execute("SELECT * FROM pet")
+    return result
+
 
 
 if __name__ == "__main__":
