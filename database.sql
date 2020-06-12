@@ -11,6 +11,18 @@ CREATE TABLE pet (
     name VARCHAR(60),
     breed VARCHAR(80),
     color VARCHAR(80),
-    checked_in VARCHAR(80),
+    checked_in BOOLEAN DEFAULT false,
     owner_id integer REFERENCES owner
 );
+
+INSERT INTO "owner"
+    ("name")
+VALUES
+    ('Frank'),
+    ('Marge');
+
+INSERT INTO "pet"
+    ("name", "breed", "color", "checked_in", "owner_id")
+VALUES
+    ('Fido', 'mutt', 'brown', 'false', '1'),
+    ('Mittens', 'alley', 'black', 'false', '2');
